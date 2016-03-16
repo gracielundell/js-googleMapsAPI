@@ -17,23 +17,11 @@ $(document).ready(function(){
         mapTypeId : google.maps.MapTypeId.ROADMAP
       };
       var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+      new google.maps.Marker({
+        map: mapObject,
+        position: userLatLng
+      });
     });
     event.preventDefault();
   });
 });
-
-
-
-// $(document).ready(function(){
-//   $("#getHike").click(function(){
-//     var splitAddress = $("#address").val();
-//     var address = splitAddress.split(" ").join("+");
-//     var lat = results.results[0].geometry.location.lat;
-//     var long = results.results[0].geometry.location.lng;
-//     $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + "&key=" + apiKey).then(function(results){
-//       debugger;
-//       $('#map').text("The latitude of " + splitAddress + " is " + lat);
-//       $('#map').text("The longitude of " + splitAddress + " is " + long);
-//     });
-//   });
-// });
