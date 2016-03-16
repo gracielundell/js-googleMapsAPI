@@ -14,10 +14,30 @@
     <div class="container">
       <h1>Places</h1>
       <h2>Create a list of places you want to go.</h2>
-      <button id="addItem" type="button" name="button">Add Place</button>
-      <div id="placesForm"></div>
+      <div class="placesForm">
+        <form id="addressForm">
+          <div class="fields">
+            <label for="address">Enter the address</label>
+            <input id="address" type="text" name="name" value=""></input>
+          </div>
+          <button class="submitBtn" type="submit" name="button">Look Up</button>
+        </form>
+      </div>
       <div class="geometry"></div>
       <div id="map">
+      </div>
+      <div class="listForm placesForm">
+        <form class="nameForm" action="index.html" method="post">
+          <div class="fields">
+            <label for="name">Enter the name of this place</label>
+            <input id="name" type="text" name="name" value=""></input>
+          </div>
+          <div class="fields">
+            <label for="notes">Enter the notes for this place</label>
+            <input id="notes" type="text" name="name" value=""></input>
+          </div>
+          <button class="submitBtn" type="submit" name="button">Add to my list</button>
+        </form>
       </div>
     </div>
   </body>
