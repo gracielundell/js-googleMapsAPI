@@ -22,8 +22,6 @@ $(document).ready(function(){
     $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + "&key=" + apiKey).then(function(results){
       lat = results.results[0].geometry.location.lat;
       long = results.results[0].geometry.location.lng;
-      console.log(lat);
-      console.log(long);
       var userLatLng = new google.maps.LatLng(lat, long);
       var myOptions = {
         zoom : 16,

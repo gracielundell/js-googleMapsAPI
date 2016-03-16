@@ -1,17 +1,45 @@
+body {
+  background: oldlace;
+  font-family: 'Raleway', sans-serif;
+}
+
 h1 {
-  color: tomato;
+  color: #558D8F;
 }
 
 #map {
   margin-top: 25px;
   height: 400px;
   width: 600px;
-  border: 1px solid olive;
 }
 
 .submitBtn {
   display: block;
   margin: 0 auto;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10%;
+  padding: 5px 8px;
+  border: none;
+  background-color: lighten(#A59C9A, 10%);
+  color: lighten(#1B2347, 10%);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+
+.showMap {
+  float: right;
+  border-radius: 10%;
+  padding: 5px 8px;
+  border: none;
+  background-color: lighten(#1B2347, 50%);
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+  font-size: inherit;
 }
 
 .container {
@@ -22,12 +50,35 @@ h1 {
   .placesForm {
     display: flex;
     padding: 10px;
-    width: 300px;
+    width: 500px;
+    label {
+      font-size: 16px;
+      font-weight: lighter;
+    }
+    #addressForm {
+      width: 100%;
+      input {
+        text-align: center;
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+      }
+    }
+    form.nameForm {
+      width: 100%;
+      input {
+        text-align: center;
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+      }
+    }
     .fields {
       display: flex;
       flex-direction: column;
       justify-content: center;
       text-align: center;
+      width: 100%;
       input {
         width: 280px;
         margin-bottom: 5%;
@@ -45,9 +96,12 @@ ul {
   margin: 0 0 150px 0;
   list-style-type: none;
   li {
+    display: inline-block;
     border: 2px solid black;
-    padding: 5%;
-    margin-top: 5%;
-    width: 500px;
+    padding: 2%;
+    margin: 10px;
+    width: 45%;
+    min-width: 400px;
+    height: 100%;
   }
 }
