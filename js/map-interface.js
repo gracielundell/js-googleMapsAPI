@@ -7,3 +7,15 @@ function initMap() {
     zoom: 8
   });
 }
+
+
+$(document).ready(function(){
+  $("#getHike").click(function(){
+    var splitAddress = $("#address").val();
+    var address = splitAddress.split(" ").join("+");
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + "&key=" + apiKey).then(function(results){
+      debugger;
+      $('#map').text("The latitude of " + splitAddress + " is " + results.results[0].geometry.location.lat);
+    });
+  });
+});
