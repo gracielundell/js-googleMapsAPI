@@ -18,7 +18,7 @@
         <form id="addressForm">
           <div class="fields">
             <label for="address">Enter the address</label>
-            <input id="address" type="text" name="name" value=""></input>
+            <input id="address" type="text"></input>
           </div>
           <button class="submitBtn" type="submit" name="button">Look Up</button>
         </form>
@@ -27,18 +27,19 @@
       <div id="map">
       </div>
       <div class="listForm placesForm">
-        <form class="nameForm" action="index.html" method="post">
+        <form class="nameForm">
           <div class="fields">
             <label for="name">Enter the name of this place</label>
-            <input id="name" type="text" name="name" value=""></input>
+            <input id="name" type="text"></input>
           </div>
           <div class="fields">
             <label for="notes">Enter the notes for this place</label>
-            <input id="notes" type="text" name="name" value=""></input>
+            <input id="notes" type="text"></input>
           </div>
           <button class="submitBtn" type="submit" name="button">Add to my list</button>
         </form>
       </div>
+      <ul class="placesList"></ul>
     </div>
   </body>
 </html>

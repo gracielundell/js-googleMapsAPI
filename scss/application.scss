@@ -9,9 +9,6 @@ h1 {
   border: 1px solid olive;
 }
 
-body {
-}
-
 .submitBtn {
   display: block;
   margin: 0 auto;
@@ -39,5 +36,18 @@ body {
   }
   .listForm {
     margin: 10px;
+  }
+}
+
+ul {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  li {
+    border: 2px solid black;
+    padding: 5%;
+    margin-top: 5%;
+    width: 500px;
   }
 }

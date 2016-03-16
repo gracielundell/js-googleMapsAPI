@@ -7,7 +7,6 @@ $(document).ready(function(){
     var address = splitAddress.split(" ").join("+");
     var lat;
     var long;
-    debugger;
     $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + "&key=" + apiKey).then(function(results){
       lat = results.results[0].geometry.location.lat;
       long = results.results[0].geometry.location.lng;

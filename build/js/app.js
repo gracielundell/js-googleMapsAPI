@@ -3,25 +3,16 @@ exports.apiKey = "AIzaSyBissOznhs8zc9xBCKX5yqDpo9xBB2yYEg";
 
 },{}],2:[function(require,module,exports){
 
-// $(document).ready(function(){
-//   $("#addItem").click(function(){
-//     $("#placesForm").append('<form id="addressForm">' +
-//                               '<div class="fields">' +
-//                                 '<label for="name">Place</label>' +
-//                                 '<input id="name" type="text"></input>' +
-//                               '</div>' +
-//                               '<div class="fields">' +
-//                                 '<label for="address">Enter the address</label>' +
-//                                 '<input id="address" type="text" name="name" value=""></input>' +
-//                               '</div>' +
-//                               '<div class="fields">' +
-//                                 '<label for="notes">Notes</label>' +
-//                                 '<input id="notes" type="text"></input>' +
-//                               '</div>' +
-//                               '<button class="submitBtn" type="submit" name="button">Add to my list</button>' +
-//                             '</form>')
-//   });
-// });
+$(document).ready(function(){
+  $("form.nameForm").submit(function(event){
+    alert("hi");
+    debugger;
+    var userName = $("input#name").val();
+    var userNotes = $("input#notes").val();
+    $("ul.placesList").append("<li>Location: " + userName + "<br>" + "Notes: " + userNotes + "</li>");
+    event.preventDefault();
+  });
+});
 
 var apiKey = require("./../.env").apiKey;
 
@@ -32,7 +23,6 @@ $(document).ready(function(){
     var address = splitAddress.split(" ").join("+");
     var lat;
     var long;
-    debugger;
     $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + address + "&key=" + apiKey).then(function(results){
       lat = results.results[0].geometry.location.lat;
       long = results.results[0].geometry.location.lng;
