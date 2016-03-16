@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="build/css/vendor.css">
     <link rel="stylesheet" href="build/css/application.css">
     <script src="build/js/vendor.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBissOznhs8zc9xBCKX5yqDpo9xBB2yYEg"
+    async defer>
+    </script>
     <script type="text/javascript" src="build/js/app.js"></script>
     <title>API</title>
   </head>
@@ -16,7 +19,9 @@
         <input id="address" type="text" name="name" value=""></input>
         <button id="getHike" type="submit" name="button">Find Hike</button>
       </form>
-      <div id="map"></div>
+      <div class="geometry"></div>
+      <div id="map">
+      </div>
     </div>
   </body>
 </html>
