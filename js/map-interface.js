@@ -26,8 +26,17 @@ $(document).ready(function(){
     });
     var city = $('#address').val();
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + weatherAPI, function(response){
-      $("#weather").empty();
-      $("#weather").append("<p>Today's Weather:<br>" + response.weather[0].description + "</p>");
+      console.log()
+      $(".todaysWeather").empty();
+      $(".todaysWeather").prepend("<p>Today's Weather:<br>" + response.weather[0].description + "</p>");
+      $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherAPI, function(response){
+        console.log(response);
+        $("#weather5Day").empty();
+        $('#day1').prepend("5 Day Forecast:<br>");
+        for (var i = 0; i <= 5; i++) {
+          $('#day' + [i]).append(response.list[i].weather[0].description);
+        }
+      });
     });
     event.preventDefault();
     $(".listForm").show();

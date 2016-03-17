@@ -115,11 +115,13 @@ ul {
     background-image: url('/img/weather-bg.jpg');
     color: oldlace;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 30px;
     height: 400px;
     width: 45%;
     text-align: center;
+    text-shadow: 1px 1px 1px black;
   }
 }
