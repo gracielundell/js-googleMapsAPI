@@ -3,6 +3,7 @@ var weatherAPI = require("./../.env").weatherAPI;
 
 $(document).ready(function(){
   $(".listForm").hide();
+  $("#weather").hide();
   $("form#addressForm").submit(function(event){
     var splitAddress = $("#address").val();
     var address = splitAddress.split(" ").join("+");
@@ -25,9 +26,11 @@ $(document).ready(function(){
     });
     var city = $('#address').val();
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + weatherAPI, function(response){
-      $("#weather").text(response.weather[0].description);
+      $("#weather").empty();
+      $("#weather").append("<p>Today's Weather:<br>" + response.weather[0].description + "</p>");
     })
     event.preventDefault();
     $(".listForm").show();
+    $("#weather").show();
   });
 });
