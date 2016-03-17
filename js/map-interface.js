@@ -1,4 +1,5 @@
 var apiKey = require("./../.env").apiKey;
+var weatherAPI = require("./../.env").weatherAPI;
 
 $(document).ready(function(){
   $(".listForm").hide();
@@ -22,6 +23,10 @@ $(document).ready(function(){
         position: userLatLng
       });
     });
+    var city = $('#address').val();
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + weatherAPI, function(response){
+      $("#weather").text(response.weather[0].description);
+    })
     event.preventDefault();
     $(".listForm").show();
   });
