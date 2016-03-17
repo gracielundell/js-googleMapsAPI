@@ -4,6 +4,32 @@ exports.apiKey = "AIzaSyAQTD4JxQYC1vLN-La-4gfyfURn5JC6348";
 exports.weatherAPI = "19e5e8222f081c8bd019804334478683";
 
 },{}],2:[function(require,module,exports){
+var weatherAPI = require("./../.env").weatherAPI;
+
+exports.Forecast = function() {
+  var city = $('#address').val();
+  $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherAPI, function(response){
+    $("#weather5Day").empty();
+    $('#day1').prepend("5 Day Forecast:<br>");
+    for (var i = 0; i <= 5; i++) {
+      $('#day' + [i]).append(response.list[i].weather[0].description);
+    };
+  });
+};
+
+},{"./../.env":1}],3:[function(require,module,exports){
+var weatherAPI = require("./../.env").weatherAPI;
+
+exports.Forecast = function() {
+  var city = $('#address').val();
+  $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherAPI, function(response){
+    $("#weather5Day").empty();
+    $('#day1').prepend("5 Day Forecast:<br>");
+    for (var i = 0; i <= 5; i++) {
+      $('#day' + [i]).append(response.list[i].weather[0].description);
+    };
+  });
+};
 
 $(document).ready(function(){
   $("form.nameForm").submit(function(event){
@@ -48,7 +74,7 @@ $(document).ready(function(){
 });
 
 var apiKey = require("./../.env").apiKey;
-var weatherAPI = require("./../.env").weatherAPI;
+var Forecast = require("./../js/browser-interface.js").Forecast;
 
 $(document).ready(function(){
   $(".listForm").hide();
@@ -75,17 +101,10 @@ $(document).ready(function(){
     });
     var city = $('#address').val();
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + weatherAPI, function(response){
-      console.log()
       $(".todaysWeather").empty();
       $(".todaysWeather").prepend("<p>Today's Weather:<br>" + response.weather[0].description + "</p>");
-      $.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + weatherAPI, function(response){
-        console.log(response);
-        $("#weather5Day").empty();
-        $('#day1').prepend("5 Day Forecast:<br>");
-        for (var i = 0; i <= 5; i++) {
-          $('#day' + [i]).append(response.list[i].weather[0].description);
-        }
-      });
+      // Pulls in function for 5 day forecast
+      var newForecast = new Forecast();
     });
     event.preventDefault();
     $(".listForm").show();
@@ -93,4 +112,4 @@ $(document).ready(function(){
   });
 });
 
-},{"./../.env":1}]},{},[2]);
+},{"./../.env":1,"./../js/browser-interface.js":2}]},{},[3]);
